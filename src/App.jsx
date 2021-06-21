@@ -71,6 +71,14 @@ function App() {
     console.log("Cleared Canvas");
   };
 
+  const saveImage = () => {
+    let link = document.createElement("a");
+    link.download = "download.png";
+    link.href = canvasRef.current.toDataURL();
+    link.click();
+    link.delete;
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -88,6 +96,7 @@ function App() {
           clearCanvas={clearDrawing}
           penSize={penSize}
           setPenSize={setPenSize}
+          saveImage={saveImage}
         />
       </div>
     </div>

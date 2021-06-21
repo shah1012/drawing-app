@@ -3,7 +3,14 @@ import * as BiIcons from "react-icons/bi";
 import { ChromePicker } from "react-color";
 import "../styles/toolbar.css";
 
-const Toolbar = ({ clearCanvas, color, setColor, penSize, setPenSize }) => {
+const Toolbar = ({
+  clearCanvas,
+  color,
+  setColor,
+  penSize,
+  setPenSize,
+  saveImage,
+}) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showPen, setShowPen] = useState(false);
 
@@ -20,7 +27,7 @@ const Toolbar = ({ clearCanvas, color, setColor, penSize, setPenSize }) => {
       <ul className="toolbarElements">
         <li onClick={updateShowPen}>
           {showPen && (
-            <div style={{ position: "fixed", bottom: "5%" }}>
+            <div className="bottomPos">
               <input
                 type="range"
                 min={1}
@@ -38,7 +45,8 @@ const Toolbar = ({ clearCanvas, color, setColor, penSize, setPenSize }) => {
         <li>
           {showColorPicker && (
             <div
-              style={{ position: "fixed", bottom: "5%", padding: "20px" }}
+              className="bottomPos"
+              style={{ padding: "20px" }}
               onMouseLeave={updateShowColorPicker}
             >
               <ChromePicker
@@ -48,6 +56,10 @@ const Toolbar = ({ clearCanvas, color, setColor, penSize, setPenSize }) => {
             </div>
           )}
           <BiIcons.BiColorFill onClick={updateShowColorPicker} />
+        </li>
+
+        <li onClick={saveImage}>
+          <BiIcons.BiUpload></BiIcons.BiUpload>
         </li>
       </ul>
     </div>

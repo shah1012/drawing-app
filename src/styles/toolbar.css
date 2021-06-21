@@ -8,6 +8,11 @@
   display: none !important;
 }
 
+.bottomPos {
+  position: fixed;
+  bottom: 5%;
+}
+
 .toolbarElements {
   width: 100%;
   height: 100%;
